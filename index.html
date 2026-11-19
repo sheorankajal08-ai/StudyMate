@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudyMate - Student Productivity & Study Management Platform</title>
+  
+  <!-- Google Fonts: Plus Jakarta Sans -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome 6 Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       NAVIGATION BAR
+       ========================================================================== -->
+  <header class="landing-nav" id="landing-navbar">
+    <div class="nav-container">
+      <a href="index.html" class="logo">
+        <div class="logo-icon">
+          <i class="fa-solid fa-graduation-cap"></i>
+        </div>
+        <span>Study<span class="text-gradient">Mate</span></span>
+      </a>
+
+      <nav class="nav-menu">
+        <a href="#features" class="nav-link">Features</a>
+        <a href="#notes-preview" class="nav-link">My Notes</a>
+        <a href="#timetable-preview" class="nav-link">Timetable</a>
+        <a href="#focus-preview" class="nav-link">Focus Zone</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+      </nav>
+
+      <div class="nav-actions">
+        <button class="btn btn-outline btn-sm" onclick="openAuthModal('login')">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> Log In
+        </button>
+        <button class="btn btn-primary btn-sm" onclick="openAuthModal('signup')">
+          Get Started <i class="fa-solid fa-arrow-right"></i>
+        </button>
+        <button class="menu-toggle" id="menu-toggle-btn" onclick="openAuthModal('login')" aria-label="Menu">
+          <i class="fa-solid fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ==========================================================================
+       HERO SECTION
+       ========================================================================== -->
+  <section class="hero-section">
+    <div class="hero-glow-1"></div>
+    <div class="hero-glow-2"></div>
+
+    <div class="hero-container">
+      <div class="hero-content">
+        <div class="hero-tag">
+          <i class="fa-solid fa-sparkles" style="color: var(--primary-600);"></i>
+          The All-in-One Purple Study Suite
+        </div>
+
+        <h1 class="hero-title">
+          Master Your Studies with <span class="text-gradient">Effortless Clarity</span>
+        </h1>
+
+        <p class="hero-desc">
+          Organize your student life in one beautifully unified space. Keep track of lecture notes, impending assignment deadlines, weekly class schedules, live exam countdowns, and deep 25-minute Pomodoro focus sessions.
+        </p>
+
+        <div class="hero-buttons">
+          <a href="dashboard.html" class="btn btn-primary btn-lg">
+            <i class="fa-solid fa-rocket"></i> Launch Dashboard
+          </a>
+          <button class="btn btn-secondary btn-lg" onclick="guestLogin()">
+            <i class="fa-solid fa-user-astronaut"></i> Instant Demo Mode
+          </button>
+        </div>
+
+        <div class="hero-stats">
+          <div class="stat-item">
+            <h3>25-Min</h3>
+            <p>Smart Focus Sessions</p>
+          </div>
+          <div class="stat-item">
+            <h3>100%</h3>
+            <p>Browser Local Storage</p>
+          </div>
+          <div class="stat-item">
+            <h3>6-in-1</h3>
+            <p>Productivity Tools</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Hero Visual Mockup -->
+      <div class="hero-visual">
+        <div class="floating-pill floating-pill-1">
+          <i class="fa-solid fa-fire" style="color: #f97316;"></i>
+          <span>5-Day Study Streak!</span>
+        </div>
+
+        <div class="floating-pill floating-pill-2">
+          <i class="fa-solid fa-circle-check" style="color: #10b981;"></i>
+          <span>Assignment Complete!</span>
+        </div>
+
+        <div class="hero-card-stack">
+          <div class="hero-mini-header">
+            <div class="hero-avatar-group">
+              <div class="hero-avatar">AC</div>
+              <div>
+                <h4 style="font-size: 0.95rem; font-weight: 700;">Alex Carter</h4>
+                <p class="text-xs" style="color: var(--text-muted);"><i class="fa-solid fa-graduation-cap"></i> Computer Science & Math</p>
+              </div>
+            </div>
+            <span class="badge badge-purple"><i class="fa-solid fa-circle text-xs" style="color: #10b981;"></i> Active</span>
+          </div>
+
+          <div class="hero-timer-preview">
+            <div class="text-xs font-semibold" style="color: var(--primary-700); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.3rem;">
+              <i class="fa-solid fa-hourglass-start"></i> Focus Zone Session
+            </div>
+            <div class="hero-timer-time">25:00</div>
+            <p class="text-xs" style="color: var(--text-muted); margin-top: 0.2rem;">Technique: 25m Focus + 5m Refresh</p>
+          </div>
+
+          <div class="hero-task-row">
+            <div>
+              <div class="text-sm font-semibold">Algorithms Problem Set 4</div>
+              <div class="text-xs" style="color: var(--text-muted);">Due Tomorrow at 11:59 PM</div>
+            </div>
+            <span class="badge badge-danger">High Priority</span>
+          </div>
+
+          <div class="hero-task-row">
+            <div>
+              <div class="text-sm font-semibold">Vector Calculus Midterm</div>
+              <div class="text-xs" style="color: var(--text-muted);"><i class="fa-solid fa-clock"></i> 5 Days Remaining</div>
+            </div>
+            <span class="badge badge-purple">Exam</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       KEY FEATURES SHOWCASE
+       ========================================================================== -->
+  <section class="features-section" id="features">
+    <div class="section-header">
+      <span class="badge badge-purple" style="margin-bottom: 0.8rem;">Feature Suite</span>
+      <h2 class="section-title">Designed for High-Achieving Students</h2>
+      <p class="section-desc">StudyMate equips you with every essential productivity tool built in a beautiful, distraction-free purple and white environment.</p>
+    </div>
+
+    <div class="feature-grid">
+      <!-- Feature 1: Student Dashboard -->
+      <div class="feature-card">
+        <div class="feature-icon-wrapper">
+          <i class="fa-solid fa-chart-pie"></i>
+        </div>
+        <h3>Student Dashboard</h3>
+        <p>A personalized command center greeting you every morning with daily motivation, today's schedule, pending tasks, and real-time study statistics.</p>
+      </div>
+
+      <!-- Feature 2: My Notes -->
+      <div class="feature-card" id="notes-preview">
+        <div class="feature-icon-wrapper">
+          <i class="fa-solid fa-book-open"></i>
+        </div>
+        <h3>My Notes Section</h3>
+        <p>Capture lecture notes instantly with rich categorization, color coding, pin-to-top convenience, instant search, and full edit/delete capabilities.</p>
+      </div>
+
+      <!-- Feature 3: Assignment Tracker -->
+      <div class="feature-card">
+        <div class="feature-icon-wrapper">
+          <i class="fa-solid fa-list-check"></i>
+        </div>
+        <h3>Assignment Tracker</h3>
+        <p>Stay ahead of deadlines with progress completion bars, priority tags (Low/Medium/High), and status toggles (To Do, In Progress, Completed).</p>
+      </div>
+
+      <!-- Feature 4: Weekly Timetable -->
+      <div class="feature-card" id="timetable-preview">
+        <div class="feature-icon-wrapper">
+          <i class="fa-regular fa-calendar-days"></i>
+        </div>
+        <h3>Weekly Timetable</h3>
+        <p>Clean day-by-day lecture schedule from Monday through Sunday. Record your classroom, instructor, time slots, and lecture details with ease.</p>
+      </div>
+
+      <!-- Feature 5: Exam Countdown -->
+      <div class="feature-card">
+        <div class="feature-icon-wrapper">
+          <i class="fa-solid fa-stopwatch"></i>
+        </div>
+        <h3>Exam Countdown</h3>
+        <p>Live, second-by-second countdown tickers for upcoming midterms and finals, paired with interactive syllabus preparation tracking bars.</p>
+      </div>
+
+      <!-- Feature 6: Focus Zone -->
+      <div class="feature-card" id="focus-preview">
+        <div class="feature-icon-wrapper">
+          <i class="fa-solid fa-brain"></i>
+        </div>
+        <h3>Focus Zone (25-Min Timer)</h3>
+        <p>Built-in 25-minute Pomodoro study timer with circular progress visuals and synthesized relaxing ambient sounds (Rain, Lo-Fi, Alpha waves).</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       INTERACTIVE LIVE PREVIEW TEASER
+       ========================================================================== -->
+  <section class="preview-section">
+    <div class="preview-container">
+      <div class="preview-browser-bar">
+        <div class="browser-dots">
+          <div class="browser-dot red"></div>
+          <div class="browser-dot yellow"></div>
+          <div class="browser-dot green"></div>
+        </div>
+        <div class="browser-url">
+          <i class="fa-solid fa-lock" style="color: #10b981; margin-right: 0.35rem;"></i>
+          https://studymate.app/dashboard
+        </div>
+      </div>
+
+      <div class="preview-content-grid">
+        <div>
+          <span class="badge badge-purple" style="margin-bottom: 0.8rem;">Live Integration</span>
+          <h3 style="font-size: 1.85rem; font-weight: 800; color: var(--primary-950); margin-bottom: 1rem;">
+            Ready to Take Control of Your Academic Journey?
+          </h3>
+          <p style="color: var(--text-muted); font-size: 1rem; line-height: 1.7; margin-bottom: 1.5rem;">
+            Whether you are preparing for intense semester finals or organizing daily lectures, StudyMate offers the cleanest user experience tailored specifically for student success.
+          </p>
+          <ul style="display: flex; flex-direction: column; gap: 0.75rem; margin-bottom: 2rem;">
+            <li style="display: flex; align-items: center; gap: 0.65rem; font-weight: 600; color: var(--text-main);">
+              <i class="fa-solid fa-circle-check" style="color: var(--primary-600);"></i> No sign-up required to test: demo mode ready in 1 click
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.65rem; font-weight: 600; color: var(--text-main);">
+              <i class="fa-solid fa-circle-check" style="color: var(--primary-600);"></i> Automatic persistence using your browser's local memory
+            </li>
+            <li style="display: flex; align-items: center; gap: 0.65rem; font-weight: 600; color: var(--text-main);">
+              <i class="fa-solid fa-circle-check" style="color: var(--primary-600);"></i> Night study theme support for late-night review sessions
+            </li>
+          </ul>
+          <a href="dashboard.html" class="btn btn-primary">
+            Open Full Student Dashboard <i class="fa-solid fa-arrow-right"></i>
+          </a>
+        </div>
+
+        <div style="background: var(--primary-50); border-radius: var(--radius-lg); padding: 1.75rem; border: 1px solid var(--primary-200); display: flex; flex-direction: column; justify-content: space-between;">
+          <div>
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.25rem;">
+              <h4 style="font-weight: 800; color: var(--primary-900);">Upcoming Exams Countdown</h4>
+              <span class="badge badge-danger">Live Ticker</span>
+            </div>
+            
+            <div style="background: #ffffff; padding: 1.25rem; border-radius: var(--radius-md); box-shadow: var(--shadow-sm); margin-bottom: 1rem;">
+              <div style="font-weight: 700; color: var(--text-main);">Computer Science Midterm</div>
+              <div style="font-size: 0.8rem; color: var(--text-muted); margin-bottom: 0.8rem;">Data Structures & Algorithms</div>
+              <div style="display: flex; justify-content: space-between; text-align: center; background: var(--primary-50); padding: 0.75rem; border-radius: var(--radius-sm);">
+                <div>
+                  <div style="font-weight: 800; color: var(--primary-800); font-size: 1.25rem;">05</div>
+                  <div style="font-size: 0.65rem; text-transform: uppercase; color: var(--primary-600); font-weight: 700;">Days</div>
+                </div>
+                <div style="font-weight: 800; font-size: 1.25rem; color: var(--primary-300);">:</div>
+                <div>
+                  <div style="font-weight: 800; color: var(--primary-800); font-size: 1.25rem;">04</div>
+                  <div style="font-size: 0.65rem; text-transform: uppercase; color: var(--primary-600); font-weight: 700;">Hours</div>
+                </div>
+                <div style="font-weight: 800; font-size: 1.25rem; color: var(--primary-300);">:</div>
+                <div>
+                  <div style="font-weight: 800; color: var(--primary-800); font-size: 1.25rem;">18</div>
+                  <div style="font-size: 0.65rem; text-transform: uppercase; color: var(--primary-600); font-weight: 700;">Mins</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div style="background: #ffffff; padding: 1rem 1.25rem; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: space-between; border: 1px solid var(--primary-100);">
+            <div style="display: flex; align-items: center; gap: 0.75rem;">
+              <i class="fa-solid fa-headphones" style="font-size: 1.4rem; color: var(--primary-600);"></i>
+              <div>
+                <div style="font-size: 0.88rem; font-weight: 700;">Lo-Fi Ambient Sound</div>
+                <div style="font-size: 0.75rem; color: var(--text-muted);">Calming synthesized rain waves</div>
+              </div>
+            </div>
+            <span class="badge badge-success">Built-in</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       CALL TO ACTION BANNER
+       ========================================================================== -->
+  <section class="cta-section">
+    <div class="cta-container">
+      <h2 class="cta-title">Start Elevating Your Grades Today</h2>
+      <p class="cta-desc">
+        Join students organizing their studies with StudyMate's clean purple workspace. No complex setup—just pure student productivity.
+      </p>
+      <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+        <button class="btn btn-white btn-lg" onclick="openAuthModal('signup')">
+          <i class="fa-solid fa-user-plus"></i> Create Free Account
+        </button>
+        <a href="dashboard.html" class="btn btn-outline btn-lg" style="color: #ffffff; border-color: rgba(255,255,255,0.7);">
+          Explore Dashboard <i class="fa-solid fa-arrow-right"></i>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ==========================================================================
+       FOOTER
+       ========================================================================== -->
+  <footer class="landing-footer">
+    <div class="footer-container">
+      <div class="footer-brand">
+        <a href="index.html" class="logo">
+          <div class="logo-icon">
+            <i class="fa-solid fa-graduation-cap"></i>
+          </div>
+          <span>Study<span class="text-gradient">Mate</span></span>
+        </a>
+        <p>The modern, intuitive purple-and-white student productivity suite crafted to make studying purposeful and rewarding.</p>
+      </div>
+
+      <div class="footer-col">
+        <h4>Navigation</h4>
+        <div class="footer-links">
+          <a href="index.html">Home</a>
+          <a href="dashboard.html">Student Dashboard</a>
+          <a href="dashboard.html#notes" onclick="localStorage.setItem('target_tab', 'notes')">My Notes</a>
+          <a href="dashboard.html#assignments" onclick="localStorage.setItem('target_tab', 'assignments')">Assignment Tracker</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Productivity Tools</h4>
+        <div class="footer-links">
+          <a href="dashboard.html#focus" onclick="localStorage.setItem('target_tab', 'focus')">25-Min Study Timer</a>
+          <a href="dashboard.html#timetable" onclick="localStorage.setItem('target_tab', 'timetable')">Weekly Timetable</a>
+          <a href="dashboard.html#exams" onclick="localStorage.setItem('target_tab', 'exams')">Exam Countdown</a>
+          <a href="#" onclick="guestLogin(); return false;">Demo Student Profile</a>
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <h4>Theme & Quick Access</h4>
+        <div class="footer-links">
+          <a href="javascript:void(0)" onclick="openAuthModal('login')"><i class="fa-solid fa-arrow-right-to-bracket"></i> Student Login</a>
+          <a href="javascript:void(0)" onclick="openAuthModal('signup')"><i class="fa-solid fa-user-plus"></i> Student Sign Up</a>
+          <a href="javascript:void(0)" onclick="toggleDarkMode()"><i class="fa-solid fa-moon"></i> Toggle Night Mode</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2026 StudyMate Productivity Platform. All rights reserved.</p>
+      <p>Built with <i class="fa-solid fa-heart" style="color: var(--primary-600);"></i> for students everywhere.</p>
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       AUTH MODAL (LOGIN & SIGNUP)
+       ========================================================================== -->
+  <div class="modal-overlay" id="auth-modal">
+    <div class="modal-box">
+      <button class="modal-close-btn" onclick="closeModal('auth-modal')" aria-label="Close modal">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="modal-header-banner">
+        <h3>Welcome to StudyMate</h3>
+        <p>Your ultimate academic productivity companion</p>
+      </div>
+
+      <div class="auth-tabs">
+        <div class="auth-tab-btn active" id="tab-login-btn" onclick="switchAuthTab('login')">
+          <i class="fa-solid fa-arrow-right-to-bracket"></i> Log In
+        </div>
+        <div class="auth-tab-btn" id="tab-signup-btn" onclick="switchAuthTab('signup')">
+          <i class="fa-solid fa-user-plus"></i> Sign Up
+        </div>
+      </div>
+
+      <div class="modal-body">
+        <!-- Quick Guest Demo Button -->
+        <div class="demo-account-pill">
+          <span><i class="fa-solid fa-wand-magic-sparkles" style="color: var(--primary-600); margin-right: 0.35rem;"></i> Try without typing:</span>
+          <button class="btn btn-primary btn-sm" onclick="guestLogin()">
+            Quick Demo Login
+          </button>
+        </div>
+
+        <!-- Login Form -->
+        <div id="login-form-container">
+          <form id="auth-login-form">
+            <div class="form-group">
+              <label class="form-label" for="login-email">Student Email</label>
+              <input type="email" id="login-email" class="form-input" placeholder="e.g. alex.carter@student.edu" value="alex.carter@student.edu" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="login-password">Password</label>
+              <input type="password" id="login-password" class="form-input" placeholder="••••••••" value="studymate123" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+              <i class="fa-solid fa-arrow-right-to-bracket"></i> Log In to Dashboard
+            </button>
+          </form>
+        </div>
+
+        <!-- Signup Form -->
+        <div id="signup-form-container" style="display: none;">
+          <form id="auth-signup-form">
+            <div class="form-group">
+              <label class="form-label" for="signup-name">Full Name</label>
+              <input type="text" id="signup-name" class="form-input" placeholder="e.g. Maya Lin" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="signup-email">Student Email</label>
+              <input type="email" id="signup-email" class="form-input" placeholder="e.g. maya.lin@university.edu" required>
+            </div>
+            <div class="form-group">
+              <label class="form-label" for="signup-password">Create Password</label>
+              <input type="password" id="signup-password" class="form-input" placeholder="At least 6 characters" required>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 0.5rem;">
+              <i class="fa-solid fa-user-plus"></i> Create Account & Start
+            </button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Toast Notification Container -->
+  <div id="toast-container" class="toast-container"></div>
+<!-- Supabase Connection -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+<script>
+  window.supabaseClient = window.supabase.createClient(
+    "https://uabvsthzkywheesloars.supabase.co",
+    "sb_publishable_hGjFLKjYw5OG4rwjA1X5CA_bzctXmBP"
+  );
+
+  console.log("StudyMate Supabase initialized!");
+</script>
+  <!-- Core Scripts -->
+  <script src="script.js"></script>
+</body>
+</html>
